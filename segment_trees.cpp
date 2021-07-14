@@ -35,3 +35,4 @@ void update(int v, int tl, int tr, int pos, int new_val) {
         t[v] = t[v*2] + t[v*2+1];
     }
 }
+//Same Code can Be Modified for Range Minimum / Maximum / XOR / AND / OR / GCD with Point Update Queries 
