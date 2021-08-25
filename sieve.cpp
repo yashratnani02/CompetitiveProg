@@ -1,22 +1,33 @@
-const int M = 1e6 + 1;
-    vector<int> sieve(M,0);
-    for (int i = 0; i < M; i++)
-    {
-        sieve[i] = i;
-    }
+struct sieve
+{
+    vector<int> spf;
     
-    for (int i = 2; i < M; i+=2)
+    sieve(int M)
     {
-        sieve[i] = 2;
-    }
-    for (int i = 3; i*i < M; i++)
-    {
-        if(sieve[i]==i){
-            for (int j = i*i; j < M; j++)
+        spf.resize(M);
+        for (int i = 0; i < M; i++)
+        {
+            spf[i] = i;
+        }
+
+        for (int i = 2; i < M; i += 2)
+        {
+            spf[i] = 2;
+        }
+        for (int i = 3; i * i < M; i++)
+        {
+            if (spf[i] == i)
             {
-                if(sieve[j]==j){
-                    sieve[j] = i;
+                for (int j = i * i; j < M; j++)
+                {
+                    if (spf[j] == j)
+                    {
+                        spf[j] = i;
+                    }
                 }
             }
         }
+       
     }
+     
+};
