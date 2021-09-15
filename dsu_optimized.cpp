@@ -1,21 +1,32 @@
-int parent[n] = {0};
-void make_set(int v) {
+struct DSU
+{
+  vector<int> parent;
+  vector<int> sze;
+  DSU(int n){
+    parent.resize(n,-1);
+    sze.resize(n,0);
+  }
+  void make_set(int v)
+  {
     parent[v] = v;
-    size[v] = 1;
-}
-
-void union_sets(int a, int b) {
+    sze[v] = 1;
+  }
+  int find_set(int v)
+  {
+    if (v == parent[v])
+      return v;
+    return parent[v] = find_set(parent[v]);
+  }
+  void union_sets(int a, int b)
+  {
     a = find_set(a);
     b = find_set(b);
-    if (a != b) {
-        if (size[a] < size[b])
-            swap(a, b);
-        parent[b] = a;
-        size[a] += size[b];
+    if (a != b)
+    {
+      if (sze[a] < sze[b])
+        swap(a, b);
+      parent[b] = a;
+      sze[a] += sze[b];
     }
-}
-int find_set(int v) {
-    if (v == parent[v])
-        return v;
-    return parent[v] = find_set(parent[v]);
-}
+  }
+};
