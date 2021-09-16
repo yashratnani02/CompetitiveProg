@@ -2,9 +2,17 @@ struct DSU
 {
   vector<int> parent;
   vector<int> sze;
-  DSU(int n){
+  DSU(int n,bool init){
     parent.resize(n,-1);
     sze.resize(n,0);
+    len.resize(n,0);
+    if(init){
+      for (int i = 0; i < n; i++)
+      {
+        parent[i] = i;
+        sze[i] = 1;
+      }
+    }
   }
   void make_set(int v)
   {
