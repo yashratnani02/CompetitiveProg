@@ -1,7 +1,10 @@
 struct sieve
 {
     vector<int> spf;
+<<<<<<< HEAD
+=======
     
+>>>>>>> 1a5f9849a385909151eec245e91459a4078b2b00
     sieve(int M)
     {
         spf.resize(M);
@@ -26,8 +29,13 @@ struct sieve
                     }
                 }
             }
+<<<<<<< HEAD
+        } 
+    }
+=======
         }
        
     }
      
+>>>>>>> 1a5f9849a385909151eec245e91459a4078b2b00
 };

@@ -7,7 +7,11 @@ int n = A.size();
     for(int i = 0; i < n; i++){
         int x = A[i];
         int l = upper_bound(dp,dp+n+1,x) - dp;
+<<<<<<< HEAD
+        if(dp[l]>x and x>dp[l-1]){
+=======
         if(dp[l]>x && x>dp[l-1]){
+>>>>>>> 1a5f9849a385909151eec245e91459a4078b2b00
             dp[l] = x;
         }
        
